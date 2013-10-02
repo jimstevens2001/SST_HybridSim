@@ -1,5 +1,5 @@
-#ifndef MULTICHANNELMEMORYCONTROLLER_H
-#define MULTICHANNELMEMORYCONTROLLER_H
+#ifndef JIMSIM_MULTICHANNELMEMORYCONTROLLER_H
+#define JIMSIM_MULTICHANNELMEMORYCONTROLLER_H
 
 #include "Callback.h"
 #include <string>
@@ -7,7 +7,7 @@ using std::string;
 
 #include "HybridSim.h"
 
-namespace DRAMSim 
+namespace SST_HybridSim 
 {
 
 	class MultiChannelMemorySystem {
@@ -33,7 +33,7 @@ namespace DRAMSim
 			Callback_t *write_cb;
 
 			void read_complete(uint id, uint64_t addr, uint64_t cycle);
-			void write_complete(uint, uint64_t addr, uint64_t cycle);
+			void write_complete(uint id, uint64_t addr, uint64_t cycle);
 
 			TransactionCompleteCB *ReadDone;
 			TransactionCompleteCB *WriteDone;

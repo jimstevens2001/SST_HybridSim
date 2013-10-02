@@ -30,10 +30,12 @@
 
 
 
-#ifndef CALLBACK_H
-#define CALLBACK_H
+#ifndef JIMSIM_CALLBACK_H
+#define JIMSIM_CALLBACK_H
 
-namespace DRAMSim
+#include <stdint.h>
+
+namespace SST_HybridSim
 {
 
 template <typename ReturnT, typename Param1T, typename Param2T,
@@ -46,7 +48,7 @@ public:
 };
 
 template <typename Return, typename Param1T, typename Param2T, typename Param3T>
-DRAMSim::CallbackBase<Return,Param1T,Param2T,Param3T>::~CallbackBase() {}
+SST_HybridSim::CallbackBase<Return,Param1T,Param2T,Param3T>::~CallbackBase() {}
 
 template <typename ConsumerT, typename ReturnT,
 typename Param1T, typename Param2T, typename Param3T >
@@ -79,6 +81,6 @@ private:
 };
 
 typedef CallbackBase <void, unsigned, uint64_t, uint64_t> TransactionCompleteCB;
-} // namespace DRAMSim
+} // namespace SST_HybridSim
 
 #endif

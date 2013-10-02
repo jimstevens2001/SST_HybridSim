@@ -1,13 +1,14 @@
 #include <stdint.h>
 
-#include "MultiChannelMemoryController.h"
+#include "MultiChannelMemorySystem.h"
 
-namespace DRAMSim
+namespace SST_HybridSim
 {
 
 MultiChannelMemorySystem::MultiChannelMemorySystem(const string &dev, const string &sys, const string &pwd, const string &trc, unsigned megsOfMemory)
 {
-	hs = new HybridSim::HybridSystem(1, "");
+	//hs = new HybridSim::HybridSystem(1, "");
+	hs = HybridSim::getMemorySystemInstance(1, "");
 
 	read_cb = new HybridSim::Callback<MultiChannelMemorySystem, void, uint, uint64_t, uint64_t>(this, &MultiChannelMemorySystem::read_complete);
 	write_cb = new HybridSim::Callback<MultiChannelMemorySystem, void, uint, uint64_t, uint64_t>(this, &MultiChannelMemorySystem::write_complete);
